@@ -1,4 +1,4 @@
-# Generates JSON library to import into Fusion, and excel data for Harvey, Helical, and GARR using URL from JSON Library - can use barcode for custom URLS
+# Generates JSON library to import into Fusion, and excel data for Harvey, Helical, Kodiak, Haas and GARR using URL from JSON Library
 
 import json
 import os
@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup, Comment
 def search_in_json_files(barcode, json_files, tools_log):
     try:
         # Read existing data from New_Tool_Library.json if it exists
-        with open("/Users/henrywright/Desktop/Shop Model/JSON - Tool Libraries/New_Tool_Library.json", 'r', encoding='utf-8-sig') as f:
+        with open("Inset File Path and Name of JSON file to import into fusion", 'r', encoding='utf-8-sig') as f:
             existing_data = json.load(f).get('data', [])
     except FileNotFoundError:
         existing_data = []
@@ -65,27 +65,7 @@ def search_in_json_files(barcode, json_files, tools_log):
 
 if __name__ == "__main__":
     json_files = [
-                "/Users/henrywright/Desktop/Shop Model/JSON - Tool Libraries/Garr Tool-Garr Tool.json",
-                "/Users/henrywright/Desktop/Shop Model/JSON - Tool Libraries/Sandvik Coromant-Solid Hole Making.json",
-                "/Users/henrywright/Desktop/Shop Model/JSON - Tool Libraries/Harvey Tool-Specialty Profiles.json",
-                "/Users/henrywright/Desktop/Shop Model/JSON - Tool Libraries/Destiny Tool-Destiny Tool.json",
-                "/Users/henrywright/Desktop/Shop Model/JSON - Tool Libraries/IMCO-Solid End Mills Imperial.json",
-                "/Users/henrywright/Desktop/Shop Model/JSON - Tool Libraries/Harvey Tool-End Mills.json",
-                "/Users/henrywright/Desktop/Shop Model/JSON - Tool Libraries/Helical Solutions-End Mills.json",
-                "/Users/henrywright/Desktop/Shop Model/JSON - Tool Libraries/SGS Kyocera-SGS Carbide Tools Imperial.json",
-                "/Users/henrywright/Desktop/Shop Model/JSON - Tool Libraries/SwiftCARB-End Mills.json",
-                "/Users/henrywright/Desktop/Shop Model/JSON - Tool Libraries/NexGen Tooling-NexGen Tooling.json",
-                "/Users/henrywright/Desktop/Shop Model/JSON - Tool Libraries/Harvey Tool-Holemaking and Threading.json",
-                "/Users/henrywright/Desktop/Shop Model/JSON - Tool Libraries/DATRON-DATRON Cutting Tools.json",
-                "/Users/henrywright/Desktop/Shop Model/JSON - Tool Libraries/Guhring-Solid Hole Making.json",
-                "/Users/henrywright/Desktop/Shop Model/JSON - Tool Libraries/SGS Kyocera-SGS Carbide Tools Metric.json",
-                "/Users/henrywright/Desktop/Shop Model/JSON - Tool Libraries/Helical Solutions-Specialty Profiles.json",
-                "/Users/henrywright/Desktop/Shop Model/JSON - Tool Libraries/Amana Tool-Amana Cutting Tools.json",
-                "/Users/henrywright/Desktop/Shop Model/JSON - Tool Libraries/Kodiak-Kodiak.json",
-                "/Users/henrywright/Desktop/Shop Model/JSON - Tool Libraries/IMCO-Solid End Mills Metric.json",
-                "/Users/henrywright/Desktop/Shop Model/JSON - Tool Libraries/Haas Tooling-Haas Tooling.json",
-                "/Users/henrywright/Desktop/Shop Model/JSON - Tool Libraries/Sandvik Coromant-Solid End Mills.json",
-                "/Users/henrywright/Desktop/Shop Model/JSON - Tool Libraries/Valor Holemaking-Valor Holemaking.json"
+                   "Download JSON files from here - https://cam.autodesk.com/hsmtools - and then save the filepath of where you put each file. Ex - /users/you/Desktop/Json_Files/Haas"
             ]
     tools_log = {}  # Dictionary to keep track of all scanned tools
 
